@@ -8,46 +8,47 @@ class Scrabble {
 
     let scorecount = 0
 
-    let value1 =['A','E','I','O','U','L','N','R','S','T']
-    let value2 =['D','G']
-    let value3 = ['B','C','M','P']
-    let value4 = ['F','H','V','W','Y']
-    let value5 = ['K']
-    let value8 = ['J','X']
-    let value10 =['Q','Z']
+    const letterValue ={
+      A:1,
+      B:3,
+      C:3,
+      D:2,
+      E:1,
+      F:4,
+      G:2,
+      H:4,
+      I:1,
+      J:8,
+      K:5,
+      L:1,
+      M:3,
+      N:1,
+      O:1,
+      P:3,
+      Q:10,
+      R:1,
+      S:1,
+      T:1,
+      U:1,
+      V:4,
+      W:4,
+      X:8,
+      Y:4,
+      Z:10
+
+    }
+
 
    if(this.word === null) {
      return scorecount 
    }
-   
-    let W = this.word.toUpperCase()
-    
 
+    let Word = this.word.toUpperCase()
 
-
-    for(let i=0; i<= W.length; i++){
-      if (value1.includes(W[i])) {
-        scorecount += 1 
+    for(let i=0; i< Word.length; i++){
+      if ((/[A-Z]/i).test(Word[i])){
+      scorecount += letterValue[Word[i]]
       }
-      else if (value2.includes(W[i])) {
-        scorecount += 2 
-      }
-      else if (value3.includes(W[i])) {
-        scorecount+= 3 
-      }
-      else if (value4.includes(W[i])) {
-        scorecount += 4
-      }
-      else if (value5.includes(W[i])) {
-        scorecount += 5
-      }
-      else if (value8.includes(W[i])) {
-        scorecount += 8
-      }
-      else if (value10.includes(W[i])) {
-        scorecount+= 10
-      }
-
     }
 
     return scorecount
@@ -59,7 +60,7 @@ class Scrabble {
 
 }
 
-const scrabble = new Scrabble(' ')
+
 
 
 
